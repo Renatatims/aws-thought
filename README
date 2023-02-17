@@ -1,0 +1,4 @@
+aws-thought
+
+# Description
+Application allows users to post their thoughts, using MongoDB, Express.js, React and Node.js - AWS cloud platform handles the storage and database
