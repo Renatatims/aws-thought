@@ -57,4 +57,28 @@ router.get("/users/:username", (req, res) => {
   });
 });
 
+//POST /api/users
+
+// Create new user at /api/users
+router.post('/users', (req, res) => {
+    const params = {
+      TableName: table,
+      Item: {
+        username: req.body.username,
+        createdAt: Date.now(),
+        thought: req.body.thought,
+      },
+    };
+    // database call - PUT method - to add an item to the Thoughts table
+    dynamodb.put(params, (err, data) => {
+        if (err) {
+          console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+          res.status(500).json(err); // an error occurred
+        } else {
+          console.log("Added item:", JSON.stringify(data, null, 2));
+          res.json({"Added": JSON.stringify(data, null, 2)});
+        }
+      });
+    });  
+  
 module.exports = router;
