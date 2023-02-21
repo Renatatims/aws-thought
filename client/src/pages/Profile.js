@@ -10,6 +10,21 @@ const Profile = props => {
     createdAt: '', 
     thought: '',
   }]);
+  //useEffect hook - render all thoughts from a specific user
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`/api/users/${userParam}`);
+        const data = await res.json();
+        console.log(data);
+        setThoughts([...data]);
+        setIsLoaded(true);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [userParam]);
 
   return (
     <div>
