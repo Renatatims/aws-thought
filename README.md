@@ -6,6 +6,9 @@
 
 Application allows users to post their thoughts, using MongoDB, Express.js, React and Node.js - AWS cloud platform handles the storage and database
 
+## Preview
+ ![Preview](assets/screenshots/Capture1.PNG)
+
 ## Table of Contents
 
 - [Installation](#installation)
